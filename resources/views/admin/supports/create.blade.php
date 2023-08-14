@@ -1,31 +1,35 @@
 <a href="{{route('supports.index')}}">index</a>
 
-<div class="w-full max-w-xs">
-    <form action="{{route('supports.store')}}" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        @csrf
-      <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-          Username
-        </label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" name="user">
-      </div>
-      <div class="mb-6">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-          Password
-        </label>
-        <input class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" name="password">
-        <p class="text-red-500 text-xs italic">Please choose a password.</p>
-      </div>
-      <div class="flex items-center justify-between">
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-          Sign In
-        </button>
-        <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
-          Forgot Password?
-        </a>
-      </div>
-    </form>
-    <p class="text-center text-gray-500 text-xs">
-      &copy;2020 Acme Corp. All rights reserved.
-    </p>
-  </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulário</title>
+</head>
+<body>
+
+<h2>Formulário de Contato</h2>
+
+<form action="{{route('supports.create_action')}}" method="post">
+    @csrf
+    <label for="subject">Assunto:</label>
+    <input type="text" id="subject" name="subject">
+    <br><br>
+
+    <label for="status">Status:</label>
+    <select id="status" name="status">
+        <option value="a">Opção A</option>
+        <option value="p">Opção P</option>
+        <option value="c">Opção C</option>
+    </select>
+    <br><br>
+
+    <label for="body">Mensagem:</label>
+    <textarea id="body" name="body" rows="4" cols="50"></textarea>
+    <br><br>
+
+    <input type="submit" value="Enviar">
+</form>
+
+</body>
+</html>
+``

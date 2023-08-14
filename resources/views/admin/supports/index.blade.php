@@ -1,5 +1,5 @@
-<h1>listagem de supports {{count($supports)}}</h1>
-<h1><a href="{{route('supports.create')}}">Criar Duvida</a></h1>
+<h1>listagem de supports </h1>
+<h1><a href="{{route('supports.store')}}">Criar Duvida</a></h1>
 
 <table>
     <thead>
@@ -14,8 +14,10 @@
                 <td>{{$support->subject}}</td>
                 <td>{{$support->status}}</td>
                 <td>{{$support->body}}</td>
+                <td>
+                    <a href="{{route('supports.show', [$support->id])}}">detalhes</a>
+                </td>
             </tr>
         @endforeach
-
     </tbody>
 </table>
