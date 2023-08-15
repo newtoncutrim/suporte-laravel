@@ -35,4 +35,27 @@ class SupportController extends Controller
         }
         return view('admin.supports.show', compact('supports'));
     }
+
+    public function update_action(string|int $id, Request $request, Support $support){
+        if(!$support = $support->find($id)){
+            return redirect()->back();
+        }
+
+        return view('admin.supports.update', compact('support'));
+
+    }
+
+    public function update(string|int $id, Request $request, Support $support){
+        if(!$supportData = $support->find($id)){
+            return redirect()->back();
+        }
+
+        $supportData->update($request->only([
+            'subject', 'status', 'body'
+        ]));
+
+        return redirect()->route('supports.index');
+    }
 }
+
+
