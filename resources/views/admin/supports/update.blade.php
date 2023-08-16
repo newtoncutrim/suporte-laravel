@@ -25,7 +25,7 @@
     <br><br>
 
     <label for="body">Mensagem:</label>
-    <textarea id="body" name="body" rows="4" cols="50" >{{$support->subject}}</textarea>
+    <textarea id="body" name="body" rows="4" cols="50" >{{$support->body}}</textarea>
     <br><br>
 
     <input type="submit" value="Enviar">

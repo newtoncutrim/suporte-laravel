@@ -5,5 +5,10 @@
     <li>Status: {{$supports->status}}</li>
     <li>Mensagem: {{$supports->body}}</li>
 </ul>
+<form action="{{route('supports.delete', $supports->id)}}" method="post">
+@csrf
+@method('delete')
+<button type="submit">Apagar</button>
+</form>
 
 <a href="{{route('supports.index')}}">home</a>
