@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCreateRequest;
 use App\Models\Support;
 use Illuminate\Http\Request;
 
@@ -17,15 +18,14 @@ class SupportController extends Controller
         return view('admin.supports.create');
     }
 
-    public function store(Request $request, Support $support){
-        $data = $request->only(['subject', 'status', 'body']);
-        if($support->create($data)){
-            $support->save;
-            return redirect()->route('supports.index');
+    public function store(StoreCreateRequest $request, Support $support){
 
-        } else {
-            return 'n deu';
+        $data = $request->only(['subject', 'status', 'body']);
+        if(!$support->create($data)){
+            return redirect()->back();
         }
+        $support->save;
+        return redirect()->route('supports.index');
     }
 
     public function show(int|string $id, Request $request, Support $support){

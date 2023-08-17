@@ -1,6 +1,7 @@
 <h1>listagem de supports </h1>
 <h1><a href="{{route('supports.store')}}">Criar Duvida</a></h1>
 
+
 <table>
     <thead>
         <th>Assunto</th>
