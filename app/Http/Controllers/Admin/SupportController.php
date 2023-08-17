@@ -18,9 +18,11 @@ class SupportController extends Controller
         return view('admin.supports.create');
     }
 
-    public function store(StoreCreateRequest $request, Support $support){
+    public function create_action(StoreCreateRequest $request, Support $support){
 
-        $data = $request->only(['subject', 'status', 'body']);
+        /* $data = $request->only(['subject', 'status', 'body']); */
+        /* usando medtodo  que recebe apenas os campos validadosS */
+        $data = $request->validated();
         if(!$support->create($data)){
             return redirect()->back();
         }
@@ -45,14 +47,17 @@ class SupportController extends Controller
 
     }
 
-    public function update(string|int $id, Request $request, Support $support){
+    public function update(string|int $id, StoreCreateRequest $request, Support $support){
         if(!$supportData = $support->find($id)){
             return redirect()->back();
         }
 
-        $supportData->update($request->only([
+        /* $supportData->update($request->only([
             'subject', 'status', 'body'
-        ]));
+        ])); */
+
+        /* usando medtodo  que recebe apenas os campos validadosS */
+        $supportData->update($request->validated());
 
         return redirect()->route('supports.index');
     }

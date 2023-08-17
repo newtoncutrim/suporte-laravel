@@ -8,8 +8,13 @@
 <body>
 
 <h2>Formulário de Contato</h2>
+@if ($errors->any())
+@foreach($errors->all() as $error)
+    {{$error}}
+@endforeach
+@endif
 
-<form action="{{route('supports.update', $support->id)}}" method="post">
+<form action="{{route('supports.update_action', $support->id)}}" method="post">
     @csrf
     @method('put')
     <label for="subject">Assunto:</label>
