@@ -14,7 +14,7 @@
 @endforeach
 @endif
 
-<form action="{{route('supports.update_action', $support->id)}}" method="post">
+<form action="{{route('supports.edit', $support->id)}}" method="post">
     @csrf
     @method('put')
     <label for="subject">Assunto:</label>

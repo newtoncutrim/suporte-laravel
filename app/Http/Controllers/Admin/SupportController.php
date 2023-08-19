@@ -48,6 +48,7 @@ class SupportController extends Controller
     }
 
     public function update(string $id){
+
         if(!$support = $this->service->findOne($id)){
             return redirect()->back();
         }

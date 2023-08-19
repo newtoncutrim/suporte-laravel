@@ -19,9 +19,9 @@ Route::get('/supports/create', [SupportController::class, 'create'])->name('supp
 
 
 
-Route::put('/supports/{id}', [SupportController::class, 'update'])->name('supports.update_action');
+Route::get('/supports/{id}/edit', [SupportController::class, 'update'])->name('supports.update_action');
 
-Route::get('/supports/{id}/edit', [SupportController::class, 'edit'])->name('supports.edit');
+Route::put('/supports/{id}/edit', [SupportController::class, 'edit'])->name('supports.edit');
 
 
 

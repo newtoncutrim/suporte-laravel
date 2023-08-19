@@ -17,7 +17,9 @@
                 <td>{{$support['body']}}</td>
                 <td>
                     <a href="{{route('supports.show', [$support['id']])}}">detalhes</a>
-                    <a href="{{route('supports.edit', [$support['id']])}}">Editar</a>
+                </td>
+                <td>
+                    <a href="{{route('supports.update_action', $support['id'])}}">editar</a>
                 </td>
 
             </tr>
