@@ -11,6 +11,13 @@ class SupportService {
     public function __construct(protected SupportInterfaceRepository $repository)
     {}
 
+    public function paginate(string $filter = null, int $pages = 1, int $totalPerPage = 15){
+        return $this->repository->paginate(
+            pages: $pages,
+            totalPerPage: $totalPerPage,
+            filter: $filter
+        );
+    }
     public function getAll(string $filter = null): array
     {
         return $this->repository->getAll($filter);
