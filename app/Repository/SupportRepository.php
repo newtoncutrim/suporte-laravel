@@ -2,9 +2,10 @@
 namespace App\Repository;
 
 use stdClass;
+use App\Models\Support;
 use App\DTO\CreateSupportDTO;
 use App\DTO\UpdateSupportDTO;
-use App\Models\Support;
+use App\Repository\PaginateIterface;
 
 class SupportRepository implements SupportInterfaceRepository {
     public function __construct(protected Support $model)
@@ -17,8 +18,9 @@ class SupportRepository implements SupportInterfaceRepository {
                 $query->where('subject', $filter);
                 $query->where('body', 'like', "%{$filter}%");
             }
-        })->paginate($totalPerPage, ['*'], 'pages', $pages)->toArray();
-        dd($result);
+        })->paginate($totalPerPage, ['*'], 'pages', $pages);
+        dd((new PaginatePresenter ($result))->items());
+        return new PaginatePresenter ($result);
     }
 
     public function getAll(string $filter = null): array
