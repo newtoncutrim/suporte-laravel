@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\SupportStatus;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SupportController;
 
@@ -33,4 +34,8 @@ Route::get('/contact', [SupportController::class, 'contact'])->name('supports.co
 
 Route::fallback(function () {
     return view('welcome');
+});
+
+Route::get('//', function () {
+    dd( array_column(SupportStatus::cases(), 'name'));
 });

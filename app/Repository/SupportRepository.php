@@ -11,15 +11,15 @@ class SupportRepository implements SupportInterfaceRepository {
     public function __construct(protected Support $model)
     {}
 
-    public function paginate(string $filter = null, int $pages = 1, int $totalPerPage = 15): PaginateIterface
+    public function paginate(string $filter = null, int $page = 1, int $totalPerPage = 15): PaginateIterface
     {
         $result =$this->model->where(function($query) use ($filter){
             if($filter){
                 $query->where('subject', $filter);
                 $query->where('body', 'like', "%{$filter}%");
             }
-        })->paginate($totalPerPage, ['*'], 'pages', $pages);
-        dd((new PaginatePresenter ($result))->items());
+        })->paginate($totalPerPage, ['*'], 'page', $page);
+
         return new PaginatePresenter ($result);
     }
 

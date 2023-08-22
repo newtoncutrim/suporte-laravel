@@ -8,7 +8,7 @@ use stdClass;
 
 interface SupportInterfaceRepository {
 
-    public function paginate(string $filter = null, int $pages = 1, int $totalPerPage = 15): PaginateIterface;
+    public function paginate(string $filter = null, int $page = 1, int $totalPerPage = 15): PaginateIterface;
 
     public function getAll(string $filter = null): array;
 

@@ -6,9 +6,9 @@
     <label for="status">Status:</label>
     <select id="status" name="status">
 
-        <option value="a" {{$support->status == "a" ? "selected" : ''}}>Opção A</option>
-        <option value="p" {{$support->status == "p" ? "selected" : ''}}>Opção P</option>
-        <option value="c" {{$support->status == "c" ? "selected" : ''}}>Opção C</option>
+        <option value="a" {{isset($support->status) == "a" ? "selected" : 'a'}}>Opção A</option>
+        {{-- <option value="p" {{$support->status == "p" ? "selected" : 'a'}}>Opção P</option>
+        <option value="c" {{$support->status == "c" ? "selected" : 'a'}}>Opção C</option> --}}
     </select>
     <br><br>
 

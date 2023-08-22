@@ -10,19 +10,20 @@
 
     </thead>
     <tbody>
-        @foreach ($supports as $support )
+        @foreach ($supports->items() as $support )
             <tr>
-                <td>{{$support['subject']}}</td>
-                <td>{{$support['status']}}</td>
-                <td>{{$support['body']}}</td>
+                <td>{{$support->subject}}</td>
+                <td>{{getStatussupport($support->status)}}</td>
+                <td>{{$support->body}}</td>
                 <td>
-                    <a href="{{route('supports.show', [$support['id']])}}">detalhes</a>
+                    <a href="{{route('supports.show', [$support->id])}}">detalhes</a>
                 </td>
                 <td>
-                    <a href="{{route('supports.update_action', $support['id'])}}">editar</a>
+                    <a href="{{route('supports.update_action', $support->id)}}">editar</a>
                 </td>
 
             </tr>
         @endforeach
     </tbody>
 </table>
+<x-paginate :paginator="$supports"/>
