@@ -29,7 +29,7 @@ Route::put('/supports/{id}/edit', [SupportController::class, 'edit'])->name('sup
 Route::delete('/supports/{id}/delete', [SupportController::class, 'destroy'])->name('supports.delete');
 Route::get('/supports/{id}', [SupportController::class, 'show'])->name('supports.show');
 
-Route::post('/supports/create', [SupportController::class, 'create_action'])->name('supports.create_action');
+Route::post('/supports/create', [SupportController::class, 'store'])->name('supports.create_action');
 Route::get('/contact', [SupportController::class, 'contact'])->name('supports.contact');
 
 Route::fallback(function () {

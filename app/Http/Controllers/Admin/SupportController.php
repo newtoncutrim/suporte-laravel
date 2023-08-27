@@ -29,7 +29,7 @@ class SupportController extends Controller
         return view('admin.supports.create');
     }
 
-    public function create_action(StoreCreateRequest $request){
+    public function store(StoreCreateRequest $request){
 
         $this->service->new(
             CreateSupportDTO::makeFromRequest($request)

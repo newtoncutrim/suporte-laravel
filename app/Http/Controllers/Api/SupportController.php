@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\DTO\Supports\CreateSupportDTO;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCreateRequest;
+use App\Http\Resources\SupportResource;
 use App\Services\SupportService;
 use Illuminate\Http\Request;
 
@@ -31,7 +32,7 @@ class SupportController extends Controller
             CreateSupportDTO::makeFromRequest($request)
         );
 
-        return $support;
+        return new SupportResource($support);
     }
 
     /**
