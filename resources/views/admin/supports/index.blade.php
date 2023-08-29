@@ -1,6 +1,13 @@
-<h1>listagem de supports </h1>
-<h1><a href="{{route('supports.store')}}">Criar Duvida</a></h1>
+@extends('admin.template.template')
 
+
+@section('title', 'Listagem')
+@section('header')
+    <h1><b>listagem de supports</b> </h1>
+@endsection
+
+@section('content')
+<h1><a href="{{route('supports.store')}}">Criar Duvida</a></h1>
 
 <table>
     <thead>
@@ -27,3 +34,6 @@
     </tbody>
 </table>
 <x-paginate :paginator="$supports"/>
+
+
+@endsection
