@@ -36,6 +36,9 @@ Route::fallback(function () {
     return view('welcome');
 });
 
+Route::get('/avatars', [SupportController::class, 'getAvatars'])->name('avatars.index');
+
+
 Route::get('//', function () {
     dd( array_column(SupportStatus::cases(), 'name'));
 });

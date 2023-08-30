@@ -8,14 +8,16 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        @yield('header')
-    </header>
-    <div class="content">
-        @yield('content')
-    </div>
-    <footer>
-        footer
-    </footer>
+    <section class="container px-4 mx-auto">
+        <div class="sm:flex sm:items-center sm:justify-between">
+            @yield('header')
+        </div>
+        <div class="content">
+            @yield('content')
+        </div>
+        <footer>
+            footer
+        </footer>
+    </section>
 </body>
 </html>

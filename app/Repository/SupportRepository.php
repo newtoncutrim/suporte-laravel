@@ -13,6 +13,8 @@ class SupportRepository implements SupportInterfaceRepository {
 
     public function paginate(string $filter = null, int $page = 1, int $totalPerPage = 15): PaginateIterface
     {
+
+        /* dd("Filter: $filter, Page: $page, Total Per Page: $totalPerPage"); */
         $result =$this->model->where(function($query) use ($filter){
             if($filter){
                 $query->where('subject', $filter);
