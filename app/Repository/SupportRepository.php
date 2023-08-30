@@ -17,8 +17,7 @@ class SupportRepository implements SupportInterfaceRepository {
         /* dd("Filter: $filter, Page: $page, Total Per Page: $totalPerPage"); */
         $result =$this->model->where(function($query) use ($filter){
             if($filter){
-                $query->where('subject', $filter);
-                $query->where('body', 'like', "%{$filter}%");
+                $query->where('subject', $filter)->orWhere('body', 'like', "%{$filter}%");
             }
         })->paginate($totalPerPage, ['*'], 'page', $page);
 
